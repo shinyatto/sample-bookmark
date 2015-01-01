@@ -1,6 +1,6 @@
 <h1>登録したURLの一覧</h1>
 <ul>
-  <%= @bookmarks.each do | bookmark | %>
+  <% @bookmarks.each do | bookmark | %>
   <li><%= bookmark.id %>, <%= bookmark.url %></li>
   <% end %>
 </ul>
