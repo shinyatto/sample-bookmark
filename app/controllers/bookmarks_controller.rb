@@ -31,6 +31,12 @@ class BookmarksController < ApplicationController
     end
   end
 
+  def destroy
+    @bookmark = current_user.created_bookmarks.find(params[:id])
+    @bookmark.destroy!
+    redirect_to root_path, notice: '削除しました'
+  end
+
   private
 
   def bookmark_params
