@@ -7,6 +7,11 @@ class Bookmark < ActiveRecord::Base
 
   before_validation :set_dates
 
+  def created_by?(user)
+    return false unless user
+    owner_id == user.id
+  end
+
   def set_dates
     now = Time.zone.now
     self.created_at = now
