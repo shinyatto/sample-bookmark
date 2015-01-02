@@ -11,12 +11,23 @@
       <%= "@#{bookmark.owner.nickname}" %>
     </div>
     <div class="media-body">
-      <%= link_to bookmark.url, { target: '_blank' } do %>
-        <h4 class="media-heading"><%= bookmark.url %></h4>
+      <h4 class="media-heading">
+        <%= link_to bookmark.url, { target: '_blank' } do %>
+          <%= bookmark.url %>
+        <% end %>
+        <%= link_to bookmark do %>
+          <span>詳細<span>
+        <% end %>
+      </h4>
+      <b>登録日時</b> : <%= bookmark.created_at.strftime('%Y/%m/%d %H:%M') %>
+      <% if bookmark.comment %>
+      <div>
+        <b>コメント</b> :
+        <p>
+          <%= bookmark.comment %>
+        </p>
+      </div>
       <% end %>
-      <p>
-        登録日時 : <%= bookmark.created_at.strftime('%Y/%m/%d %H:%M') %>
-      </p>
     </div>
   </div>
 <% end %>

@@ -18,5 +18,10 @@
   <%= f.text_field :url, class: 'form-control' %>
 </div>
 
+<div class="form-group">
+  <%= f.label :comment %>
+  <%= f.text_area :comment, class: 'form-control', rows: 6 %>
+</div>
+
 <%= f.submit 'ブックマーク', class: 'btn btn-default', data: { disable_with: 'ブックマーク中•••' } %>
 <% end %>

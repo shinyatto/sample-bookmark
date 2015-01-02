@@ -5,5 +5,6 @@ ja:
     attributes:
       bookmark:
         url: URL
+        comment: ブックマークコメント
         created_at: 作成時間
         updated_at: 更新時間
