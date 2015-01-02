@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   root to: 'top#index'
   get '/auth/:provider/callback' => 'sessions#create'
   get '/logout' => 'sessions#destroy', as: :logout
+
+  resources :bookmarks
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
