@@ -18,6 +18,19 @@ class BookmarksController < ApplicationController
     end
   end
 
+  def edit
+    @bookmark = current_user.created_bookmarks.find(params[:id])
+  end
+
+  def update
+    @bookmark = current_user.created_bookmarks.find(params[:id])
+    if @bookmark.update(bookmark_params)
+      redirect_to @bookmark, notice: '更新しました'
+    else
+      render :edit
+    end
+  end
+
   private
 
   def bookmark_params
