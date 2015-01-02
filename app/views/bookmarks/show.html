@@ -1,0 +1,42 @@
+<div class="page-header">
+  <h1>ブックマーク詳細</h1>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    ブックマーカー
+  </div>
+  <div class="panel-body">
+    <%= link_to("https://twitter.com/#{@bookmark.owner.nickname}", { target: '_blank' }) do %>
+      <%= image_tag @bookmark.owner.image_url %>
+      <%= "@#{@bookmark.owner.nickname}" %>
+    <% end %>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    URL
+  </div>
+  <div class="panel-body">
+    <%= link_to @bookmark.url, @bookmark.url, { target: '_blank' }%>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    登録日時
+  </div>
+  <div class="panel-body">
+    <%= @bookmark.created_at.strftime('%Y/%m/%d %H:%M') %>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    更新日時
+  </div>
+  <div class="panel-body">
+    <%= @bookmark.updated_at.strftime('%Y/%m/%d %H:%M') %>
+  </div>
+</div>

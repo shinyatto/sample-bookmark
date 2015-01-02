@@ -1,5 +1,9 @@
 class BookmarksController < ApplicationController
-  before_action :authenticate
+  before_action :authenticate, except: :show
+
+  def show
+    @bookmark = Bookmark.find(params[:id])
+  end
 
   def new
     @bookmark = current_user.created_bookmarks.build
