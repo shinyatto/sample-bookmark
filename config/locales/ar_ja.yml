@@ -1,0 +1,9 @@
+ja:
+  activerecord:
+    models:
+      bookmark: ブックマーク
+    attributes:
+      bookmark:
+        url: URL
+        created_at: 作成時間
+        updated_at: 更新時間

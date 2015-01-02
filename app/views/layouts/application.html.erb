@@ -23,6 +23,7 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <% if logged_in? %>
+            <li><%= link_to 'ブックマークする', new_bookmark_path %></li>
             <li><%= link_to 'ログアウト', logout_path %></li>
             <li><%= link_to image_tag(current_user.image_url, :alt => 'twitterアカウント'), "https://twitter.com/#{current_user.nickname}", {:target => '_blank'} %></li>
           <% else %>
