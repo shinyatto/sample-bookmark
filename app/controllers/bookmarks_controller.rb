@@ -5,7 +5,7 @@ class BookmarksController < ApplicationController
     @bookmark = current_user.created_bookmarks.build
   end
 
-  def craete
+  def create
     @bookmark = current_user.created_bookmarks.build(bookmark_params)
     if @bookmark.save
       redirect_to @bookmark, notice: '作成しました'
@@ -18,7 +18,7 @@ class BookmarksController < ApplicationController
 
   def bookmark_params
     params.require(:bookmark).permit(
-
+      :url
     )
   end
 end

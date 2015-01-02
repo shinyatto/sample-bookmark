@@ -2,4 +2,12 @@ class Bookmark < ActiveRecord::Base
   validates :url, length: { maximum: 2000 }, presence: true
   validates :created_at, presence: true
   validates :updated_at, presence: true
+
+  before_validation :set_dates
+
+  def set_dates
+    now = Time.zone.now
+    self.created_at = now
+    self.updated_at = now
+  end
 end
