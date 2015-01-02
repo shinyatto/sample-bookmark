@@ -1,6 +1,22 @@
-<h1>登録したURLの一覧</h1>
-<ul>
-  <% @bookmarks.each do | bookmark | %>
-  <li><%= bookmark.id %>, <%= bookmark.url %></li>
-  <% end %>
-</ul>
+<div class="page-header">
+  <h1>ブックマーク一覧</h1>
+</div>
+
+<% @bookmarks.each do | bookmark | %>
+  <div class="media">
+    <div class="media-left">
+      <%= link_to bookmark.owner.nickname do %>
+        <%= image_tag bookmark.owner.image_url %><br>
+      <% end %>
+      <%= "@#{bookmark.owner.nickname}" %>
+    </div>
+    <div class="media-body">
+      <%= link_to bookmark.url, { target: '_blank' } do %>
+        <h4 class="media-heading"><%= bookmark.url %></h4>
+      <% end %>
+      <p>
+        登録日時 : <%= bookmark.created_at.strftime('%Y/%m/%d %H:%M') %>
+      </p>
+    </div>
+  </div>
+<% end %>
