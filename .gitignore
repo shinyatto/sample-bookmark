@@ -18,3 +18,4 @@
 
 # config
 config/secret.yml
+config/database.yml
