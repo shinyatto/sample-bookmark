@@ -5,7 +5,7 @@
 <% @bookmarks.each do | bookmark | %>
   <div class="media">
     <div class="media-left">
-      <%= link_to bookmark.owner.nickname do %>
+      <%= link_to people_link_to(bookmark.owner) do %>
         <%= image_tag bookmark.owner.image_url %><br>
       <% end %>
       <%= "@#{bookmark.owner.nickname}" %>

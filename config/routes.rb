@@ -4,9 +4,10 @@ Rails.application.routes.draw do
   root to: 'top#index'
   get '/auth/:provider/callback' => 'sessions#create'
   get '/logout' => 'sessions#destroy', as: :logout
+  get '/people/:nickname' => 'users#show', as: :people
 
   resources :bookmarks, only: %i{new create show edit update destroy}
-  resources :users, only: %i{show}
+  #resource :users, only: %i{show}, :path => 'people/:username'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
