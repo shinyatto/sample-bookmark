@@ -14,24 +14,24 @@
 ActiveRecord::Schema.define(version: 20150102112917) do
 
   create_table "bookmarks", force: :cascade do |t|
-    t.text     "url",        null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "owner_id"
-    t.text     "comment"
+    t.text     "url",        limit: 65535, null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "owner_id",   limit: 4
+    t.text     "comment",    limit: 65535
   end
 
-  add_index "bookmarks", ["owner_id"], name: "index_bookmarks_on_owner_id"
+  add_index "bookmarks", ["owner_id"], name: "index_bookmarks_on_owner_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "provider",   null: false
-    t.string   "uid",        null: false
-    t.string   "nickname",   null: false
-    t.string   "image_url",  null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "provider",   limit: 255, null: false
+    t.string   "uid",        limit: 255, null: false
+    t.string   "nickname",   limit: 255, null: false
+    t.string   "image_url",  limit: 255, null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
-  add_index "users", ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true
+  add_index "users", ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true, using: :btree
 
 end
